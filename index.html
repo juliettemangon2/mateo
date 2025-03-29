@@ -32,6 +32,7 @@
       padding: 40px;
       flex: 1;
     }
+    
 
     .main img {
       max-width: 100%;
@@ -91,6 +92,20 @@
     <img src="mateoSamples/09.jpg" alt="Sample Photo 9">
 
   </div>
+  <script>
+  fetch('images.json')
+    .then(res => res.json())
+    .then(images => {
+      const container = document.querySelector(".main");
+      images.forEach(name => {
+        const img = document.createElement("img");
+        img.src = `mateoSamples/${name}`;
+        img.alt = name;
+        container.appendChild(img);
+      });
+    });
+  </script>
+
 </body>
 </html>
 
