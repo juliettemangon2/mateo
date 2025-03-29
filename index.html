@@ -3,68 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photographer Portfolio</title>
+  <title>Juliette Mangon Photography</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      padding: 40px 20px;
-      text-align: center;
+      padding: 0;
+      font-family: Georgia, serif;
       background-color: white;
+      color: #222;
+      display: flex;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      letter-spacing: 1px;
+
+    .sidebar {
+      width: 220px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 20px;
+      line-height: 1.6;
+      font-size: 14px;
+      position: fixed;
+      height: 100vh;
     }
-    nav {
-      text-align: center;
-      padding: 10px;
-      background-color: #ddd;
+
+    .main {
+      margin-left: 240px;
+      padding: 40px;
+      flex: 1;
     }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-    .gallery img {
-      width: 100%;
+
+    .main img {
+      max-width: 100%;
       height: auto;
       display: block;
-      background-color: #ccc;
+      margin: 0 auto 40px auto;
+      border: 4px solid black;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      background-color: white;
-      border-top: 1px solid #ccc;
+
+    .nav {
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #222;
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Juliette Mangon Photography</h1>
-  </header>
+  <div class="sidebar">
+    <strong>Juliette Mangon</strong>
+    <div>
+      Los Angeles<br>
+      New York City<br>
+      Paris
+    </div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
+    <div>
+      photo
+    </div>
 
-  <section class="gallery">
+    <div>
+      information
+    </div>
+
+    <div>
+      email<br>
+      instagram
+    </div>
+
+    <div class="nav">
+      <a href="#">&uarr; Index</a>
+      <a href="#">Next &rarr;</a>
+    </div>
+  </div>
+
+  <div class="main">
     <img src="mateoSamples/01.jpg" alt="Sample Photo 1">
     <img src="mateoSamples/02.jpg" alt="Sample Photo 2">
     <img src="mateoSamples/03.jpg" alt="Sample Photo 3">
@@ -74,10 +91,8 @@
     <img src="mateoSamples/07.jpg" alt="Sample Photo 7">
     <img src="mateoSamples/08.jpg" alt="Sample Photo 8">
     <img src="mateoSamples/09.jpg" alt="Sample Photo 9">
-  </section>
 
-  <footer>
-    &copy; 2025 Juliette Mangon. All rights reserved.
-  </footer>
+  </div>
 </body>
 </html>
+
