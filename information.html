@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mateo Information</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Times New Roman", Times, serif;
+      background-color: white;
+      color: #222;
+      display: flex;
+    }
+    .sidebar {
+      width: 400px; /* Sidebar width */
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 14px;
+      position: fixed;
+      height: 100vh;
+    }
+    .sidebar a {
+      color: #222;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+    .main {
+      margin-left: 420px; /* Adjusted to clear the sidebar */
+      padding: 40px;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar available on every page -->
+  <div class="sidebar">
+    <strong>Mateo</strong>
+    <div>New York City</div>
+    <div><a href="index.html">Photo</a></div>
+    <div><a href="information.html">Information</a></div>
+    <div><a href="contact.html">Contact</a></div>
+  </div>
+
+  <!-- Main content area -->
+  <div class="main">
+    <h1>Mateo Information</h1>
+  </div>
+</body>
+</html>
 
