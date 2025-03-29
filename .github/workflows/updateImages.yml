@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'mateoSamples/**'
-      - 'generate-image-list.py'
+      - 'generateImageList.py'
       - '.github/workflows/updateImages.yml'
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Generate images.json
         run: |
-          python generate-image-list.py
+          python generateImageList.py
 
       - name: Commit and push if changes
         env:
