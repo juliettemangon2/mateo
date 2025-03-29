@@ -25,13 +25,9 @@ jobs:
           python generateImageList.py
 
       - name: Commit and push if changes
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add images.json
           git commit -m "Update images.json" || echo "No changes to commit"
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
-          git push origin main
-
+          git push
