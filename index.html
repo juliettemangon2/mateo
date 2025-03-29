@@ -3,62 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mateo Photography</title>
+  <title>Mateo Photography</title>  
   <style>
-    body {
+    /* Reset default margin and padding */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: "Times New Roman", Times, serif;
       background-color: white;
       color: #222;
-      display: flex;
     }
 
+    /* Sidebar pinned to the left, filling the entire viewport height */
     .sidebar {
-      width: 400px; 
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 20px;
-      line-height: 1.6;
-      font-size: 14px;
       position: fixed;
-      height: 100vh;
+      top: 0;
+      left: 0;
+      width: 400px;       /* Make the sidebar as wide as you like */
+      height: 100vh;      /* Fill the entire browser viewport height */
+      background-color: white;  /* Change if you want a different background color */
+      padding: 40px 20px;
+      overflow-y: auto;   /* If the sidebar content becomes too tall, allow it to scroll */
     }
 
+    /* Main content is shifted to the right to avoid overlapping the sidebar */
     .main {
-      margin-left: 420px; /* adjusted margin to match sidebar width */
+      margin-left: 400px; /* Match the sidebar width */
       padding: 40px;
-      flex: 1;
     }
-    
+
+    /* Basic styling for sidebar links */
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #222;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Example styling for images in the main section */
     .main img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto 40px auto;
-      border: none; /* removed black borders */
-    }
-
-    .nav {
-      font-size: 14px;
-      margin-top: 20px;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: #222;
-      margin-right: 10px;
-    }
-    
-    /* Optional styling for sidebar links */
-    .sidebar a {
-      color: #222;
-      text-decoration: none;
-    }
-    .sidebar a:hover {
-      text-decoration: underline;
+      border: none;
     }
   </style>
 </head>
