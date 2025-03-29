@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'mateoSamples/**'
+      - 'generate-image-list.py'
       - '.github/workflows/updateImages.yml'
 
 jobs:
@@ -21,7 +22,7 @@ jobs:
 
       - name: Generate images.json
         run: |
-          python generateImageList.py
+          python generate-image-list.py
 
       - name: Commit and push if changes
         env:
@@ -32,4 +33,5 @@ jobs:
           git add images.json
           git commit -m "Update images.json" || echo "No changes to commit"
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
-          git push
+          git push origin main
+
