@@ -15,7 +15,7 @@
     }
 
     .sidebar {
-      width: 220px;
+      width: 300px; /* increased sidebar width */
       padding: 40px 20px;
       display: flex;
       flex-direction: column;
@@ -28,18 +28,17 @@
     }
 
     .main {
-      margin-left: 240px;
+      margin-left: 320px; /* adjusted margin to match sidebar width */
       padding: 40px;
       flex: 1;
     }
     
-
     .main img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto 40px auto;
-      border: 4px solid black;
+      border: none; /* removed black borders */
     }
 
     .nav {
@@ -52,6 +51,15 @@
       color: #222;
       margin-right: 10px;
     }
+    
+    /* Optional styling for sidebar links */
+    .sidebar a {
+      color: #222;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -62,16 +70,17 @@
     </div>
 
     <div>
-      photo
+      <a href="photo.html">photo</a>
     </div>
 
     <div>
-      information
+      <a href="contact.html">contact</a>
     </div>
 
+
     <div>
-      email<br>
-      instagram
+      <a href="mailto:someone@example.com">email</a><br>
+      <a href="https://instagram.com/yourprofile" target="_blank">instagram</a>
     </div>
 
     <div class="nav">
@@ -90,22 +99,20 @@
     <img src="mateoSamples/07.jpg" alt="Sample Photo 7">
     <img src="mateoSamples/08.jpg" alt="Sample Photo 8">
     <img src="mateoSamples/09.jpg" alt="Sample Photo 9">
-
   </div>
   <script>
-  fetch('images.json')
-    .then(res => res.json())
-    .then(images => {
-      const container = document.querySelector(".main");
-      images.forEach(name => {
-        const img = document.createElement("img");
-        img.src = `mateoSamples/${name}`;
-        img.alt = name;
-        container.appendChild(img);
+    fetch('images.json')
+      .then(res => res.json())
+      .then(images => {
+        const container = document.querySelector(".main");
+        images.forEach(name => {
+          const img = document.createElement("img");
+          img.src = `mateoSamples/${name}`;
+          img.alt = name;
+          container.appendChild(img);
+        });
       });
-    });
   </script>
-
 </body>
 </html>
 
