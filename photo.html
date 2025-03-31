@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mateo Photography</title>  
+  <style>
+    /* Reset default margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: white;
+      color: #222;
+    }
+
+    /* Sidebar pinned to the left, filling the entire viewport height */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 400px;       /* Make the sidebar as wide as you like */
+      height: 100vh;      /* Fill the entire browser viewport height */
+      background-color: white;  /* Change if you want a different background color */
+      font-size: 22px;  /* Increased font size for sidebar text */
+      line-height: 2; 
+      padding: 40px 20px;
+      overflow-y: auto;   /* If the sidebar content becomes too tall, allow it to scroll */
+    }
+
+    /* Main content is shifted to the right to avoid overlapping the sidebar */
+    .main {
+      margin-left: 400px; /* Match the sidebar width */
+      padding: 40px;
+    }
+
+    /* Basic styling for sidebar links */
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #222;
+    }
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Example styling for images in the main section */
+    .main img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 40px auto;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <strong>Mateo</strong>
+    <div>
+      New York City<br>
+    </div>
+
+    <div>
+      <a href="photo.html">photo</a>
+    </div>
+    <div>
+      <a href="information.html">information</a>
+    </div>
+
+    <div>
+      <a href="contact.html">contact</a>
+    </div>
+
+
+    <div>
+      <a href="mailto:someone@example.com">email</a><br>
+      <a href="https://instagram.com/yourprofile" target="_blank">instagram</a>
+    </div>
+
+    <div class="nav">
+      <a href="#">&uarr; Index</a>
+      <a href="#">Next &rarr;</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <img src="mateoSamples/01.jpg" alt="Sample Photo 1">
+    <img src="mateoSamples/02.jpg" alt="Sample Photo 2">
+    <img src="mateoSamples/03.jpg" alt="Sample Photo 3">
+    <img src="mateoSamples/04.jpg" alt="Sample Photo 4">
+    <img src="mateoSamples/05.jpg" alt="Sample Photo 5">
+    <img src="mateoSamples/06.jpg" alt="Sample Photo 6">
+    <img src="mateoSamples/07.jpg" alt="Sample Photo 7">
+    <img src="mateoSamples/08.jpg" alt="Sample Photo 8">
+    <img src="mateoSamples/09.jpg" alt="Sample Photo 9">
+  </div>
+  <script>
+    fetch('images.json')
+      .then(res => res.json())
+      .then(images => {
+        const container = document.querySelector(".main");
+        images.forEach(name => {
+          const img = document.createElement("img");
+          img.src = `mateoSamples/${name}`;
+          img.alt = name;
+          container.appendChild(img);
+        });
+      });
+  </script>
+</body>
+</html>
