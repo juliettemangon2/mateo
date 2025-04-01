@@ -4,34 +4,30 @@
   <meta charset="UTF-8">
   <title>Contact - Mateo Photography</title>
   <style>
-    /* Basic reset & styling */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      color: #000;
+      width: 100%; height: 100%;
+      background: #fff; color: #000;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       position: relative;
     }
-    /* Centered main content */
+    /* Center main contact info */
     .main {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
       font-size: 2rem;
     }
     .main p { margin: 1rem 0; }
     .main a { text-decoration: none; color: inherit; }
-    /* Footer – same as index.html */
+    /* Footer (identical to index.html) */
     .left-links {
       position: absolute;
-      bottom: 5%;
+      bottom: 5%;  
       left: 5%;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 600; 
       font-size: 2rem;
       line-height: 1;
     }
@@ -41,9 +37,7 @@
       display: block;
       margin-bottom: 0.75rem;
     }
-    .left-links a:hover {
-      text-decoration: underline;
-    }
+    .left-links a:hover { text-decoration: none; }
     .bottom-right {
       position: absolute;
       bottom: 12%;
@@ -76,9 +70,9 @@
       display: block;
       margin-bottom: 0.5rem;
     }
-    .bottom-right a:hover {
-      text-decoration: none;
-    }
+    .bottom-right a:hover { text-decoration: none; }
+    /* Active link styling */
+    .active { color: #fff !important; }
   </style>
 </head>
 <body>
@@ -87,7 +81,7 @@
     <p>+1 (319) 640-3040</p>
   </div>
   
-  <!-- Footer -->
+  <!-- Footer: Identical on every page -->
   <div class="left-links">
     <a href="photo.html">photo</a>
     <a href="exhibits.html">exhibits</a>
@@ -95,7 +89,7 @@
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo</a></div>
     <div class="nyc">new york city</div>
-    <!-- Omit "contact" link on contact page -->
+    <a href="contact.html" class="active">contact</a>
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
 </body>
