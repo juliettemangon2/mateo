@@ -4,14 +4,11 @@
   <meta charset="UTF-8">
   <title>Photos - Mateo Photography</title>
   <style>
-    /* Reset default styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background: #fff;
-      color: #000;
+      background: #fff; color: #000;
       position: relative;
     }
     /* Gallery grid */
@@ -26,7 +23,7 @@
       cursor: pointer;
       border: 1px solid #ccc;
     }
-    /* Footer navigation (same as index.html) */
+    /* Footer: Identical across pages */
     .left-links {
       position: absolute;
       bottom: 5%;
@@ -42,9 +39,7 @@
       display: block;
       margin-bottom: 0.75rem;
     }
-    .left-links a:hover {
-      text-decoration: underline;
-    }
+    .left-links a:hover { text-decoration: none; }
     .bottom-right {
       position: absolute;
       bottom: 12%;
@@ -77,16 +72,14 @@
       display: block;
       margin-bottom: 0.5rem;
     }
-    .bottom-right a:hover {
-      text-decoration: none;
-    }
-    /* Lightbox modal styles */
+    .bottom-right a:hover { text-decoration: none; }
+    .active { color: #fff !important; }
+    /* Lightbox modal */
     .lightbox {
       display: none;
       position: fixed;
       top: 0; left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
@@ -99,12 +92,12 @@
   </style>
 </head>
 <body>
-  <!-- Gallery Grid -->
   <div class="gallery" id="gallery"></div>
   
-  <!-- Footer Navigation -->
+  <!-- Footer: Identical across pages -->
   <div class="left-links">
-    <!-- Omit "photo" link on photo page -->
+    <!-- On photo page, the photo link is active -->
+    <a href="photo.html" class="active">photo</a>
     <a href="exhibits.html">exhibits</a>
   </div>
   <div class="bottom-right">
@@ -120,7 +113,6 @@
   </div>
   
   <script>
-    // Fetch images from images.json and add them to the gallery
     fetch('images.json')
       .then(res => res.json())
       .then(images => {
@@ -129,7 +121,6 @@
           const img = document.createElement('img');
           img.src = `mateoSamples/${name}`;
           img.alt = name;
-          // Add lightbox functionality when clicking an image
           img.addEventListener('click', () => {
             document.getElementById('lightbox-img').src = img.src;
             document.getElementById('lightbox').style.display = 'flex';
@@ -137,8 +128,6 @@
           gallery.appendChild(img);
         });
       });
-    
-    // Close lightbox when clicking outside the image
     document.getElementById('lightbox').addEventListener('click', () => {
       document.getElementById('lightbox').style.display = 'none';
     });
