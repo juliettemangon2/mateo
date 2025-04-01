@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Mateo Photography</title>
+
   <style>
     /* Basic page reset */
     * {
@@ -21,10 +22,10 @@
       position: relative;
     }
 
-    /* Left side links (Photo, Exhibits) */
+    /* Left side links (Photo, Exhibits) -- now lower on the page */
     .left-links {
       position: absolute;
-      bottom: 25%;  /* Adjust to move down/up */
+      bottom: 25%;  /* Move down the page by adjusting this */
       left: 5%;
       text-transform: uppercase;
       font-weight: 600; 
@@ -41,10 +42,10 @@
       text-decoration: underline;
     }
 
-    /* Right side text (Mateo block) */
+    /* Right side text (Mateo, NYC, Info, Contact) -- now higher on the page */
     .bottom-right {
       position: absolute;
-      
+      bottom: 10%;     /* Move up the page by adjusting this */
       right: 5%;
       text-transform: uppercase;
       text-align: right;
@@ -52,42 +53,41 @@
     .bottom-right .mateo {
       font-size: 4rem; 
       font-weight: 700;
-      bottom: 20%;     /* Adjust to move down/up */
-      margin-bottom: 0.1rem;  /* Very little space below 'mateo' */
+      margin-bottom: 0.5rem;
     }
     .bottom-right .nyc {
-      font-size: 1.5rem;
-      font-weight: 500;
-      bottom: 75%;     /* Adjust to move down/up */
-      margin-bottom: 1.5rem;  /* Gap between NYC and the links */
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
     }
     .bottom-right a {
       font-weight: 600;
       font-size: 2rem;
       color: #000;
-      bottom: 30%;     /* Adjust to move down/up */
       text-decoration: none;
       display: block;
-      margin-bottom: 0.5rem;  /* Spacing between each link */
+      margin-bottom: 0.5rem;
     }
     .bottom-right a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+
   <!-- Left Side: Photo, Exhibits -->
   <div class="left-links">
     <a href="photo.html">photo</a>
     <a href="exhibits.html">exhibits</a>
   </div>
 
-  <!-- Right Side: Mateo, NYC, Info, Contact, Instagram -->
+  <!-- Right Side: Mateo, NYC, Info, Contact -->
   <div class="bottom-right">
     <div class="mateo">mateo</div>
     <div class="nyc">new york city</div>
+    <a href="information.html">information</a>
     <a href="contact.html">contact</a>
-    <a href="instagram.html">instagram</a>
   </div>
+
 </body>
 </html>
