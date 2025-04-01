@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Mateo Photography</title>
-
   <style>
     /* Basic page reset */
     * {
@@ -22,10 +21,10 @@
       position: relative;
     }
 
-    /* Left side links (Photo, Exhibits) -- now lower on the page */
+    /* Left side links (Photo, Exhibits) */
     .left-links {
       position: absolute;
-      bottom: 25%;  /* Move down the page by adjusting this */
+      bottom: 25%;  /* Adjust to move down/up */
       left: 5%;
       text-transform: uppercase;
       font-weight: 600; 
@@ -42,10 +41,10 @@
       text-decoration: underline;
     }
 
-    /* Right side text (Mateo, NYC, Info, Contact) -- now higher on the page */
+    /* Right side text (Mateo block) */
     .bottom-right {
       position: absolute;
-      bottom: 10%;     /* Move up the page by adjusting this */
+      bottom: 10%;     /* Adjust to move down/up */
       right: 5%;
       text-transform: uppercase;
       text-align: right;
@@ -53,12 +52,12 @@
     .bottom-right .mateo {
       font-size: 4rem; 
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;  /* Very little space below 'mateo' */
     }
     .bottom-right .nyc {
-      font-size: 1rem;
+      font-size: 2rem;
       font-weight: 600;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;  /* Gap between NYC and the links */
     }
     .bottom-right a {
       font-weight: 600;
@@ -66,28 +65,27 @@
       color: #000;
       text-decoration: none;
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.5rem;  /* Spacing between each link */
     }
     .bottom-right a:hover {
-      text-decoration: none;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
   <!-- Left Side: Photo, Exhibits -->
   <div class="left-links">
     <a href="photo.html">photo</a>
     <a href="exhibits.html">exhibits</a>
   </div>
 
-  <!-- Right Side: Mateo, NYC, Info, Contact -->
+  <!-- Right Side: Mateo, NYC, Info, Contact, Instagram -->
   <div class="bottom-right">
     <div class="mateo">mateo</div>
     <div class="nyc">new york city</div>
     <a href="information.html">information</a>
     <a href="contact.html">contact</a>
+    <a href="instagram.html">instagram</a>
   </div>
-
 </body>
 </html>
