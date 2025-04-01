@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Photos - Mateo Photography</title>
   <style>
+    /* Reset default styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
       width: 100%;
@@ -13,7 +14,7 @@
       color: #000;
       position: relative;
     }
-    /* Gallery grid at the top */
+    /* Gallery grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -25,7 +26,7 @@
       cursor: pointer;
       border: 1px solid #ccc;
     }
-    /* Footer – same as index.html */
+    /* Footer navigation (same as index.html) */
     .left-links {
       position: absolute;
       bottom: 5%;
@@ -35,7 +36,6 @@
       font-size: 2rem;
       line-height: 1;
     }
-    /* On photo page, omit "photo" link; show only exhibits if desired */
     .left-links a {
       color: #000;
       text-decoration: none;
@@ -99,22 +99,12 @@
   </style>
 </head>
 <body>
-  <!-- Gallery Grid at the top -->
-  <div class="gallery">
-    <img src="mateoSamples/01.jpg" alt="Photo 1">
-    <img src="mateoSamples/02.jpg" alt="Photo 2">
-    <img src="mateoSamples/03.jpg" alt="Photo 3">
-    <img src="mateoSamples/04.jpg" alt="Photo 4">
-    <img src="mateoSamples/05.jpg" alt="Photo 5">
-    <img src="mateoSamples/06.jpg" alt="Photo 6">
-    <img src="mateoSamples/07.jpg" alt="Photo 7">
-    <img src="mateoSamples/08.jpg" alt="Photo 8">
-    <img src="mateoSamples/09.jpg" alt="Photo 9">
-  </div>
+  <!-- Gallery Grid -->
+  <div class="gallery" id="gallery"></div>
   
   <!-- Footer Navigation -->
   <div class="left-links">
-    <!-- Omit the "photo" link on the photo page -->
+    <!-- Omit "photo" link on photo page -->
     <a href="exhibits.html">exhibits</a>
   </div>
   <div class="bottom-right">
@@ -124,25 +114,33 @@
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
   
-  <!-- Lightbox Modal for enlarging images -->
+  <!-- Lightbox Modal -->
   <div class="lightbox" id="lightbox">
     <img src="" alt="Enlarged Photo" id="lightbox-img">
   </div>
   
   <script>
-    const galleryImages = document.querySelectorAll('.gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    
-    galleryImages.forEach(img => {
-      img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
+    // Fetch images from images.json and add them to the gallery
+    fetch('images.json')
+      .then(res => res.json())
+      .then(images => {
+        const gallery = document.getElementById('gallery');
+        images.forEach(name => {
+          const img = document.createElement('img');
+          img.src = `mateoSamples/${name}`;
+          img.alt = name;
+          // Add lightbox functionality when clicking an image
+          img.addEventListener('click', () => {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').style.display = 'flex';
+          });
+          gallery.appendChild(img);
+        });
       });
-    });
     
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
     });
   </script>
 </body>
