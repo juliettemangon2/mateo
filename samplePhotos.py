@@ -3,8 +3,8 @@ import os
 
 # Settings
 output_folder = "mateoSamples"
-image_sizes = [(1200, 800), (800, 1200), (1000, 1000)]  # Landscape, Portrait, Square
-num_images_per_size = 5
+image_sizes = [(1200, 800)]  # Landscape, Portrait, Square
+num_images_per_size = 30
 font_size = 120
 font_color = 50  # Dark gray text
 
