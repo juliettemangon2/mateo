@@ -15,15 +15,19 @@
     }
     /* Footer (used on every page) */
     .left-links {
-      position: absolute;
-      bottom: 5%;  
+      position: absolute; 
       left: 5%;
       text-transform: uppercase;
+    }
+    .left-links .info {
+      bottom: 5%; 
       font-weight: 600; 
       font-size: 2rem;
       line-height: 1;
+      color: #000;
+      margin-bottom: 0.75rem;
     }
-    .left-links a {
+    .left-links .info a {
       color: #000;
       text-decoration: none;
       display: block;
@@ -31,9 +35,10 @@
     }
     .left-links .cities{
       font-size: 1rem;
+      bottom: 2%;
       font-weight: 600;
       line-height: 0.6;
-      margin-bottom: 2rem;
+      margin-bottom: 0.5rem;
     }
     .left-links a:hover { text-decoration: none; }
     .bottom-right {
@@ -75,14 +80,13 @@
 
   <!-- Footer: Same on every page -->
   <div class="left-links">
-    <a href="photo.html">photo</a>
-    <a href="exhibits.html">exhibits</a>
+    <div class="info"><a href="photo.html">photo</a></div>
+    <div class="info"><a href="exhibits.html">exhibits</a></div>
     <div class="cities">new york city</div>
     <div class="cities">paris</div>
   </div>
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
-    <div class="nyc">new york city</div>
     <a href="contact.html">contact</a>
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
