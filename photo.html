@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Exhibits - Mateo Photography</title>
+  <meta charset="UTF-8">
+  <title>Photos - Mateo Photography</title>
   <style>
-    /* Basic page reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 100%; height: 100%;
-      background-color: #fff;
-      color: #000;
+      width: 100%; 
+      height: 100%;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #000;
       position: relative;
+      overflow-x: hidden;
     }
-    /* Main content (centered) */
-    .main {
+    /* Gallery container: horizontally scrollable, centered in the middle */
+    .gallery-container {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      text-align: center;
-      font-size: 2rem;
+      width: 90%;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
     }
-    .main p {
-      margin: 1rem 0;
+    .gallery {
+      display: inline-block;
     }
-    /* Footer (used on every page) */
+    .gallery img {
+      width: 200px;  /* Adjust thumbnail size as desired */
+      height: auto;
+      margin-right: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+    /* Footer: Same format on every page */
     .left-links {
       position: absolute; 
       bottom: 8%;
@@ -80,20 +90,34 @@
       margin-bottom: 0.5rem;
     }
     .bottom-right a:hover { text-decoration: none; }
-    /* Active link appears white */
     .active { color: #fff !important; }
+    /* Lightbox modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
   </style>
 </head>
 <body>
-  <!-- Main content -->
-  <div class="main">
-    <p>Exhibits coming soon.</p>
+  <!-- Gallery Container -->
+  <div class="gallery-container">
+    <div class="gallery" id="gallery"></div>
   </div>
   
-  <!-- Footer (same on every page) -->
+  <!-- Footer -->
   <div class="left-links">
-    <div class="info"><a href="photo.html">photo</a></div>
-    <div class="info"><a href="exhibits.html" class="active">exhibits</a></div>
+    <div class="info"><a href="photo.html" class="active">photo</a></div>
+    <div class="info"><a href="exhibits.html">exhibits</a></div>
     <a>  </a>
     <div class="cities">new york city</div>
     <div class="cities">paris</div>
@@ -103,5 +127,33 @@
     <a href="contact.html">contact</a>
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
+  
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Enlarged Photo" id="lightbox-img">
+  </div>
+  
+  <script>
+    // Fetch all image filenames from images.json and populate the gallery
+    fetch('images.json')
+      .then(response => response.json())
+      .then(images => {
+        const gallery = document.getElementById('gallery');
+        images.forEach(name => {
+          const img = document.createElement('img');
+          img.src = `mateoSamples/${name}`;
+          img.alt = name;
+          img.addEventListener('click', () => {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').style.display = 'flex';
+          });
+          gallery.appendChild(img);
+        });
+      });
+    // Close lightbox on click outside image
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
