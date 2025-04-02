@@ -4,38 +4,42 @@
   <meta charset="UTF-8">
   <title>Photos - Mateo Photography</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     html, body {
       width: 100%; 
       height: 100%;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background: #fff;
+      background: #fff; 
       color: #000;
       position: relative;
       overflow-x: hidden;
     }
-    /* Gallery container: horizontally scrollable, centered in the middle */
+    /* Vertical scrollable gallery container in the middle */
     .gallery-container {
       position: absolute;
-      top: 50%;
+      top: 10%;     /* Adjust to position the top of the gallery */
+      bottom: 20%;  /* Leave room for the footer */
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       width: 90%;
-      overflow-x: auto;
-      white-space: nowrap;
+      overflow-y: auto;
       padding: 10px;
     }
-    .gallery {
-      display: inline-block;
-    }
-    .gallery img {
-      width: 200px;  /* Adjust thumbnail size as desired */
+    /* Gallery images: arranged vertically with spacing */
+    .gallery-container img {
+      display: block;
+      width: 400px;  /* Adjust this value for larger or smaller photos */
+      max-width: 100%;
       height: auto;
-      margin-right: 10px;
+      margin: 0 auto 20px auto;
       cursor: pointer;
       border: 1px solid #ccc;
     }
-    /* Footer: Same format on every page */
+    /* Footer (same as provided) */
     .left-links {
       position: absolute; 
       bottom: 8%;
@@ -91,12 +95,14 @@
     }
     .bottom-right a:hover { text-decoration: none; }
     .active { color: #fff !important; }
-    /* Lightbox modal */
+    /* Lightbox modal styles */
     .lightbox {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
       background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
@@ -109,12 +115,12 @@
   </style>
 </head>
 <body>
-  <!-- Gallery Container -->
-  <div class="gallery-container">
-    <div class="gallery" id="gallery"></div>
+  <!-- Vertical Scrollable Gallery Container -->
+  <div class="gallery-container" id="gallery">
+    <!-- Images will be inserted here by JavaScript -->
   </div>
   
-  <!-- Footer -->
+  <!-- Footer: Same on every page -->
   <div class="left-links">
     <div class="info"><a href="photo.html" class="active">photo</a></div>
     <div class="info"><a href="exhibits.html">exhibits</a></div>
@@ -134,7 +140,7 @@
   </div>
   
   <script>
-    // Fetch all image filenames from images.json and populate the gallery
+    // Fetch images from images.json and populate the gallery container
     fetch('images.json')
       .then(response => response.json())
       .then(images => {
@@ -143,6 +149,7 @@
           const img = document.createElement('img');
           img.src = `mateoSamples/${name}`;
           img.alt = name;
+          // When clicking an image, open the lightbox
           img.addEventListener('click', () => {
             document.getElementById('lightbox-img').src = img.src;
             document.getElementById('lightbox').style.display = 'flex';
@@ -150,7 +157,8 @@
           gallery.appendChild(img);
         });
       });
-    // Close lightbox on click outside image
+      
+    // Close lightbox when clicking outside the image
     document.getElementById('lightbox').addEventListener('click', () => {
       document.getElementById('lightbox').style.display = 'none';
     });
