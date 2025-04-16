@@ -1,167 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Photos - Mateo Photography</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      width: 100%; 
-      height: 100%;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background: #fff; 
-      color: #000;
-      position: relative;
-      overflow-x: hidden;
-    }
-    /* Vertical scrollable gallery container in the middle */
-    .gallery-container {
-      position: absolute;
-      top: 5%;     /* Adjust to position the top of the gallery */
-      bottom: 5%;  /* Leave room for the footer */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      overflow-y: auto;
-      padding: 10px;
-    }
-    /* Gallery images: arranged vertically with spacing */
-    .gallery-container img {
-      display: block;
-      width: 400px;  /* Adjust this value for larger or smaller photos */
-      max-width: 100%;
-      height: auto;
-      margin: 0 auto 20px auto;
-      cursor: pointer;
-      border: 1px solid #ccc;
-    }
-    /* Footer (same as provided) */
-    .left-links {
-      position: absolute; 
-      bottom: 5%;
-      left: 5%;
-      text-transform: uppercase;
-    }
-    .left-links .info {
-      font-weight: 600; 
-      font-size: 2rem;
-      line-height: 0.7;
-      color: #000;
-      margin-bottom: 0.5rem;
-    }
-    .left-links .info a {
-      color: #000;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.75rem;
-    }
-    .left-links .cities {
-      font-size: 1rem;
-      font-weight: 600;
-      line-height: 0.6;
-      margin-bottom: 0.2rem;
-    }
-    .left-links a:hover { text-decoration: none; }
-    .bottom-right {
-      position: absolute;
-      bottom: 14%;
-      right: 5%;
-      text-transform: uppercase;
-      text-align: right;
-    }
-    .bottom-right .mateo {
-      font-size: 0.7rem;
-      font-weight: 700;
-      line-height: 0.8;
-      margin-bottom: 0.5rem;
-    }
-    .bottom-right .mateo a {
-      font-size: 0.7rem;
-      color: inherit;
-      text-decoration: none;
-    }
-    .bottom-right a {
-      line-height: 0.8;
-      font-weight: 600;
-      font-size: 2rem;
-      color: #000;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .bottom-right a:hover { text-decoration: none; }
-    .active { color: #fff !important; }
-    /* Lightbox modal styles */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-    }
-  </style>
-</head>
-<body>
-  <!-- Vertical Scrollable Gallery Container -->
-  <div class="gallery-container" id="gallery">
-    <!-- Images will be inserted here by JavaScript -->
-  </div>
-  
-  <!-- Footer: Same on every page -->
-  <div class="left-links">
-    <div class="info"><a href="photo.html" class="active">photo</a></div>
-    <div class="info"><a href="exhibits.html">exhibits</a></div>
-    <br>
-    <div class="cities">new york city</div>
-    <div class="cities">paris</div>
-  </div>
-  <div class="bottom-right">
-    <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
-    <a href="contact.html">contact</a>
-    <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
-  </div>
-  
-  <!-- Lightbox Modal -->
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Enlarged Photo" id="lightbox-img">
-  </div>
-  
+---
+layout: default
+title: Photos
+active: photo
+---
+<div class="main" style="position:absolute; top:5%; left:50%; transform:translateX(-50%); width:90%; bottom:5%; overflow-y:auto; padding:10px;">
+  <!-- Your vertical‑scroll gallery goes here -->
+  <!-- E.g. -->
+  {% raw %}
   <script>
-    // Fetch images from images.json and populate the gallery container
     fetch('images.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(images => {
-        const gallery = document.getElementById('gallery');
+        const container = document.querySelector('.main');
         images.forEach(name => {
           const img = document.createElement('img');
           img.src = `mateoSamples/${name}`;
-          img.alt = name;
-          // When clicking an image, open the lightbox
+          img.style = 'display:block; width:400px; margin:0 auto 20px; cursor:pointer; border:1px solid #ccc;';
           img.addEventListener('click', () => {
             document.getElementById('lightbox-img').src = img.src;
             document.getElementById('lightbox').style.display = 'flex';
           });
-          gallery.appendChild(img);
+          container.appendChild(img);
         });
       });
-      
-    // Close lightbox when clicking outside the image
-    document.getElementById('lightbox').addEventListener('click', () => {
-      document.getElementById('lightbox').style.display = 'none';
-    });
   </script>
-</body>
-</html>
+  <div class="lightbox" id="lightbox" style="display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;z-index:1000;">
+    <img id="lightbox-img" style="max-width:90%; max-height:90%;" />
+  </div>
+  {% endraw %}
+</div>
