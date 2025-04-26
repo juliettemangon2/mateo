@@ -42,7 +42,7 @@
         images.forEach(filename => {
           const img = document.createElement('img');
           img.src = 'exhibits/' + filename; // Prepend folder name
-          img.style = 'display:block; width:400px; margin:0 auto 20px; cursor:pointer; border:1px solid #ccc;';
+          img.style = 'display:block; width:400px; margin:0 auto 20px; cursor:pointer; ';
           img.addEventListener('click', () => {
             document.getElementById('lightbox-img').src = img.src;
             document.getElementById('lightbox').style.display = 'flex';
