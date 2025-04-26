@@ -2,10 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Exhibits - Mateo Antonio Martinez</title>
+  <title>Exhibits – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .left-links, .bottom-right {
+      position: fixed;
+      bottom: 20px;
+      z-index: 1000;
+    }
+    .main {
+      padding-bottom: 120px;
+    }
+    img {
+      border: none !important;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+    }
+  </style>
 </head>
 <body>
+
+  <div class="main" style="position:relative; width:90%; margin:0 auto; top:5%; bottom:5%; overflow-y:auto;">
+    <div id="exhibits-gallery"></div>
+  </div>
 
   <div class="left-links">
     <div class="info"><a href="photo.html">photo</a></div>
@@ -22,12 +44,6 @@
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
 
-  <div class="main" style="position:relative; width:90%; margin:0 auto;">
-    <div id="exhibits-gallery" style="display:flex; flex-direction:column; align-items:center; gap:20px;">
-      <!-- Exhibits inserted here -->
-    </div>
-  </div>
-
   <script>
     fetch('exhibits.json')
       .then(r => r.json())
@@ -36,11 +52,9 @@
         images.forEach(src => {
           const img = document.createElement('img');
           img.src = src;
-          img.style = 'width:400px; max-width:90%;';
           gallery.appendChild(img);
         });
       });
   </script>
-
 </body>
 </html>
