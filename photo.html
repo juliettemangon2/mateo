@@ -4,54 +4,41 @@
   <meta charset="UTF-8">
   <title>Photos – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    img { border: none; display: block; width: 100%; height: auto; }
-    #gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 20px;
-    }
-    .left-links, .bottom-right { position: fixed; bottom: 20px; z-index:1000; }
-    .main { padding-bottom: 120px; /* room for footer */ }
-  </style>
 </head>
 <body>
 
- <div class="left-links">
-    <div class="info"><a href="photo.html">photo</a></div>
+  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto; position:relative; top:5%; bottom:5%;">
+    <div id="gallery"></div>
+  </div>
+
+  <!-- Footer (same on every page) -->
+  <div class="left-links">
+    <div class="info"><a href="photo.html" class="active">photo</a></div>
     <div class="info"><a href="exhibits.html">exhibits</a></div>
     <div class="info"><a href="modeling.html">modeling</a></div>
     <br>
     <div class="cities">new york city</div>
     <div class="cities">paris</div>
   </div>
-
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html">contact</a>
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
 
-  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto;">
-    <div id="gallery"></div>
-  </div>
-
   <script>
+    // Load your shoots.json and render each cover as a link to its page
     fetch('shoots.json')
       .then(r => r.json())
       .then(shoots => {
-        const g = document.getElementById('gallery');
+        const gallery = document.getElementById('gallery');
         shoots.forEach(s => {
           const a = document.createElement('a');
-          // link to our single dynamic page:
           a.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
           const img = document.createElement('img');
           img.src = s.cover;
-          const caption = document.createElement('div');
-          caption.textContent = s.title;
-          caption.style.textAlign = 'center';
-          a.append(img, caption);
-          g.appendChild(a);
+          a.appendChild(img);
+          gallery.appendChild(a);
         });
       });
   </script>
