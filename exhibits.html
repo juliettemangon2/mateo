@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Exhibits - Mateo Antonio Martinez</title>
+  <title> Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -42,7 +42,7 @@
         images.forEach(filename => {
           const img = document.createElement('img');
           img.src = 'exhibits/' + filename; // Prepend folder name
-          img.style = 'display:block; width:400px; margin:0 auto 20px; cursor:pointer; ';
+          img.style = 'display:block; width:400px; margin:0 auto 20px; cursor:pointer;';
           img.addEventListener('click', () => {
             document.getElementById('lightbox-img').src = img.src;
             document.getElementById('lightbox').style.display = 'flex';
