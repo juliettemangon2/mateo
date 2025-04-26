@@ -2,56 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Mateo Antonio Martinez</title>
+  <title>Exhibits - Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-
-  <!-- Main gallery -->
-  <div class="main" style="margin-left:200px; padding:20px; overflow-y:auto;">
-    <!-- Images will load here -->
-  </div>
-
-
-  <!-- Lightbox -->
-  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
-    <img id="lightbox-img" style="max-width:90%; max-height:90%;" />
-  </div>
-
-  <script>
-    fetch('exhibits.json')
-      .then(response => response.json())
-      .then(images => {
-        const container = document.querySelector('.main');
-        images.forEach(filename => {
-          const img = document.createElement('img');
-          img.src = 'exhibits/' + filename; // Prepend folder name
-          img.style = 'display:block; width:400px; margin:0 auto 20px; cursor:pointer;';
-          img.addEventListener('click', () => {
-            document.getElementById('lightbox-img').src = img.src;
-            document.getElementById('lightbox').style.display = 'flex';
-          });
-          container.appendChild(img);
-        });
-      })
-      .catch(error => {
-        console.error('Error loading exhibits.json:', error);
-      });
-
-    // Close lightbox when clicked
-    document.addEventListener('click', function(e) {
-      const lightbox = document.getElementById('lightbox');
-      if (e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
-        lightbox.style.display = 'none';
-      }
-    });
-  </script>
-
-   <!-- Footer (inlined) -->
   <div class="left-links">
-    <div class="info"><a href="photo.html" class="active">photo</a></div>
-    <div class="info"><a href="exhibits.html">exhibits</a></div>
+    <div class="info"><a href="photo.html">photo</a></div>
+    <div class="info"><a href="exhibits.html" class="active">exhibits</a></div>
     <div class="info"><a href="modeling.html">modeling</a></div>
     <br>
     <div class="cities">new york city</div>
@@ -64,6 +22,25 @@
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
 
+  <div class="main" style="position:relative; width:90%; margin:0 auto;">
+    <div id="exhibits-gallery" style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+      <!-- Exhibits inserted here -->
+    </div>
+  </div>
+
+  <script>
+    fetch('exhibits.json')
+      .then(r => r.json())
+      .then(images => {
+        const gallery = document.getElementById('exhibits-gallery');
+        images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.style = 'width:400px; max-width:90%;';
+          gallery.appendChild(img);
+        });
+      });
+  </script>
 
 </body>
 </html>
