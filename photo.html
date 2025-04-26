@@ -5,74 +5,45 @@
   <title>Photos – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Pin footers */
-    .left-links, .bottom-right {
-      position: fixed;
-      bottom: 20px;
-      z-index: 1000;
-    }
-    /* Make sure main content doesn’t get hidden behind footer */
-    .main {
-      padding-bottom: 120px; 
-    }
-    /* No borders on any images */
-    img {
-      border: none !important;
-    }
-    /* Grid of shoot covers (adjust columns as you like) */
+    img { border: none; display: block; width: 100%; height: auto; }
     #gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
       gap: 20px;
-      justify-items: center;
     }
-    #gallery img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      cursor: pointer;
-    }
+    .left-links, .bottom-right { position: fixed; bottom: 20px; z-index:1000; }
+    .main { padding-bottom: 120px; /* room for footer */ }
   </style>
 </head>
 <body>
 
-  <!-- Main scrollable area -->
-  <div class="main" style="position:relative; width:90%; margin:0 auto; top:5%; bottom:5%; overflow-y:auto;">
+  <div class="left-links">
+    … your footer links …
+  </div>
+  <div class="bottom-right">
+    … your footer links …
+  </div>
+
+  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto;">
     <div id="gallery"></div>
   </div>
 
-  <!-- Left footer -->
-  <div class="left-links">
-    <div class="info"><a href="photo.html" class="active">photo</a></div>
-    <div class="info"><a href="exhibits.html">exhibits</a></div>
-    <div class="info"><a href="modeling.html">modeling</a></div>
-    <br>
-    <div class="cities">new york city</div>
-    <div class="cities">paris</div>
-  </div>
-
-  <!-- Right footer -->
-  <div class="bottom-right">
-    <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
-    <a href="contact.html">contact</a>
-    <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
-  </div>
-
   <script>
-    // Load the list of shoots (or use images.json if you're showing individual photos)
     fetch('shoots.json')
       .then(r => r.json())
-      .then(items => {
-        const gallery = document.getElementById('gallery');
-        items.forEach(item => {
-          // item.cover = path to thumbnail
-          // item.page  = page to navigate to
-          const link = document.createElement('a');
-          link.href = item.page;
+      .then(shoots => {
+        const g = document.getElementById('gallery');
+        shoots.forEach(s => {
+          const a = document.createElement('a');
+          // link to our single dynamic page:
+          a.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
           const img = document.createElement('img');
-          img.src = item.cover;
-          link.appendChild(img);
-          gallery.appendChild(link);
+          img.src = s.cover;
+          const caption = document.createElement('div');
+          caption.textContent = s.title;
+          caption.style.textAlign = 'center';
+          a.append(img, caption);
+          g.appendChild(a);
         });
       });
   </script>
