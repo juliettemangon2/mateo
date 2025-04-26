@@ -1,36 +1,35 @@
-import os
-import json
+import os, json
 
-base_folder = "mateoSamples"
-extensions = (".jpg", ".jpeg", ".png", ".webp")
+base = "mateoSamples"
+exts = (".jpg", ".jpeg", ".png", ".webp")
 
+# 1) collect shoots
 shoots = {}
+for root, _, files in os.walk(base):
+    # root = mateoSamples/shootFolder
+    parts = root.split(os.sep)
+    if len(parts) == 2 and files:  # exactly one level down
+        shoot = parts[1]
+        shoots[shoot] = sorted(
+            os.path.join(root, f).replace("\\","/")
+            for f in files if f.lower().endswith(exts)
+        )
 
-# walk through mateoSamples and group images by subfolder
-for root, dirs, files in os.walk(base_folder):
-    for file in files:
-        if file.lower().endswith(extensions):
-            folder = os.path.relpath(root, base_folder)
-            if folder not in shoots:
-                shoots[folder] = []
-            shoots[folder].append(os.path.join(root, file).replace("\\", "/"))
-
-# Save a master shoots.json file
-shoot_list = []
+# 2) write shoots.json
+out_shoots = []
 for shoot, images in shoots.items():
-    if images:
-        shoot_list.append({
-            "name": shoot,
-            "cover": images[0]   # first image of folder = cover photo
-        })
-
+    out_shoots.append({
+        "name": shoot,
+        "title": shoot.replace("-", " ").replace("_"," ").title(),
+        "cover": images[0],        # first image as cover
+        "json": f"{shoot}.json"
+    })
 with open("shoots.json", "w") as f:
-    json.dump(shoot_list, f, indent=2)
+    json.dump(out_shoots, f, indent=2)
 
-# Save a separate JSON per shoot
+# 3) write one JSON per shoot
 for shoot, images in shoots.items():
-    filename = shoot.replace(" ", "_").lower() + ".json"
-    with open(filename, "w") as f:
+    with open(f"{shoot}.json", "w") as f:
         json.dump(images, f, indent=2)
 
-print("Done!")
+print("Wrote shoots.json and individual shoot JSON files.")
