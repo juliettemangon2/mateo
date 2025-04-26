@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="pagetitle">Shoot – …</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    img { border: none; display: block; margin:0 auto 20px; width:100%; max-width:600px; }
+    .left-links, .bottom-right { position: fixed; bottom: 20px; z-index:1000; }
+    .main { padding-bottom: 120px; }
+  </style>
+</head>
+<body>
+  <div class="left-links">
+    <a href="photo.html">← All shoots</a>
+  </div>
+  <div class="bottom-right">
+    … your footer links …
+  </div>
+
+  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto;">
+    <div id="photos"></div>
+  </div>
+
+  <script>
+    // read & sanitize query param
+    const params = new URLSearchParams(location.search);
+    const shoot = params.get('shoot');
+    if (!shoot) {
+      document.body.innerHTML = 'No shoot specified.';
+      throw '';
+    }
+    // load shoots.json just to get the title, optionally
+    fetch('shoots.json')
+      .then(r => r.json())
+      .then(all => {
+        const info = all.find(s => s.name === shoot);
+        if (info) {
+          document.getElementById('pagetitle').textContent = info.title;
+        }
+      });
+
+    // now fetch the JSON for this shoot
+    fetch(`${shoot}.json`)
+      .then(r => r.json())
+      .then(images => {
+        const container = document.getElementById('photos');
+        images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          container.appendChild(img);
+        });
+      });
+  </script>
+</body>
+</html>
