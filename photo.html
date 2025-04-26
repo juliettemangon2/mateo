@@ -2,48 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mateo Antonio Martinez</title>
+  <title>Photography - Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-  <!-- Main scrollable gallery -->
-  <div class="main"
-       style="position:absolute; top:5%; left:50%; transform:translateX(-50%);
-              width:90%; bottom:5%; overflow-y:auto; padding:10px;">
-    <script>
-      fetch('images.json')
-        .then(r => r.json())
-        .then(images => {
-          const container = document.querySelector('.main');
-          images.forEach(name => {
-            const img = document.createElement('img');
-            img.src = `mateoSamples/${name}`;
-            img.style =
-              'display:block; width:400px; margin:0 auto 20px; ' +
-              'cursor:pointer; ';
-            img.addEventListener('click', () => {
-              document.getElementById('lightbox-img').src = img.src;
-              document.getElementById('lightbox').style.display = 'flex';
-            });
-            container.appendChild(img);
-          });
-        });
-    </script>
-
-    <!-- Lightbox overlay -->
-    <div class="lightbox" id="lightbox"
-         style="display:none; position:fixed; top:0; left:0;
-                width:100%; height:100%; background:rgba(0,0,0,0.8);
-                justify-content:center; align-items:center; z-index:1000;">
-      <img id="lightbox-img"
-           style="max-width:90%; max-height:90%;" />
-    </div>
-  </div>
-
-  <!-- Footer (inlined) -->
+  <!-- Footer (copy your footer exactly here) -->
   <div class="left-links">
-    <div class="info"><a href="photo.html" class="active">photo</a></div>
+    <div class="info"><a href="photo.html">photo</a></div>
     <div class="info"><a href="exhibits.html">exhibits</a></div>
     <div class="info"><a href="modeling.html">modeling</a></div>
     <br>
@@ -55,6 +21,26 @@
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html">contact</a>
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
+  </div>
+
+  <!-- Shoot Covers -->
+  <div class="main" style="position:absolute; top:5%; left:50%; transform:translateX(-50%); width:90%; bottom:5%; overflow-y:auto; padding:10px; text-align:center;">
+    <script>
+      fetch('shoots.json')
+        .then(r => r.json())
+        .then(shoots => {
+          const container = document.querySelector('.main');
+          shoots.forEach(shoot => {
+            const link = document.createElement('a');
+            link.href = shoot.name + '.html';  // Go to shoot page
+            const img = document.createElement('img');
+            img.src = shoot.cover;
+            img.style = 'display:block; width:400px; margin:0 auto 20px; border:1px solid #ccc;';
+            link.appendChild(img);
+            container.appendChild(link);
+          });
+        });
+    </script>
   </div>
 
 </body>
