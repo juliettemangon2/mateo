@@ -12,15 +12,16 @@
     <div id="gallery"></div>
   </div>
 
-  <!-- footers -->
+  <!-- footer -->
   <div class="left-links">
     <div class="info"><a href="photo.html" class="active">photo</a></div>
     <div class="info"><a href="exhibits.html">exhibits</a></div>
     <div class="info"><a href="modeling.html">modeling</a></div>
-    <br>
+    <div class="memory"><a href="memory.html">memory</a></div>
     <div class="cities">new york city</div>
     <div class="cities">paris</div>
   </div>
+
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html">contact</a>
@@ -28,20 +29,21 @@
   </div>
 
   <script>
+    // Render each shoot’s cover
     fetch('shoots.json')
       .then(r => r.json())
       .then(shoots => {
         const gallery = document.getElementById('gallery');
         shoots.forEach(s => {
-          const link = document.createElement('a');
-          link.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
+          const a = document.createElement('a');
+          a.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
           const img = document.createElement('img');
           img.src = s.cover;
-          img.alt = s.title;
-          link.appendChild(img);
-          gallery.appendChild(link);
+          a.appendChild(img);
+          gallery.appendChild(a);
         });
       });
   </script>
+
 </body>
 </html>
