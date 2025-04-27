@@ -55,52 +55,54 @@ html, body {
 
 /* left menu */
 .left-links {
-  left: 20px;
-  bottom: 20px;
-}
-.left-links .info,
-.left-links .memory {
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 0.7;
-  margin-bottom: 0.5rem;
-}
-.left-links .info a,
-.left-links .memory a {
-  color: #000;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-.left-links .cities {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 0.6;
-  margin-bottom: 0.2rem;
-}
-
-/* right menu (lifted up a little) */
-.bottom-right {
-  right: 20px;
-  bottom: 90px;
-  text-align: right;
-}
-.bottom-right .mateo {
-  font-size: 0.7rem;
-  font-weight: 700;
-  line-height: 0.8;
-  margin-bottom: 0.5rem;
-}
-.bottom-right .mateo a,
-.bottom-right a {
-  color: #000;
-  text-decoration: none;
-  display: block;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 0.8;
-  margin-bottom: 0.5rem;
-}
+   left: 20px;
+   bottom: 20px;
+ }
+ .left-links .info {
+   font-weight: 600;
+   font-size: 2rem;
+   line-height: 0.7;
+   margin-bottom: 0.5rem;
+ }
+ .left-links .info a {
+   color: #000;
+   text-decoration: none;
+   display: block;
+   margin-bottom: 0.75rem;
+ }
+ .left-links .cities {
+   font-size: 1rem;
+   font-weight: 600;
+   line-height: 0.6;
+   margin-bottom: 0.2rem;
+ }
+ 
+ /* right menu (lifted up a little) */
+ .bottom-right {
+   right: 20px;
+   bottom: 90px;
+   text-align: right;
+ }
+ .bottom-right .mateo {
+   font-size: 0.7rem;
+   font-weight: 700;
+   line-height: 0.8;
+   margin-bottom: 0.5rem;
+ }
+ .bottom-right .mateo a,
+ .bottom-right a {
+   color: #000;
+   text-decoration: none;
+   display: block;
+   font-size: 2rem;
+   font-weight: 600;
+   line-height: 0.8;
+   margin-bottom: 0.5rem;
+ }
+ .bottom-right .mateo a {
+   font-size: 0.7rem;
+ }
+ 
 
 /* active link highlight */
 .active {
