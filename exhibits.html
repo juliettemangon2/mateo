@@ -5,26 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* lightbox overlay */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-    }
-    /* gallery images centered */
-    #exhibits-gallery img {
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
 
@@ -32,49 +12,47 @@
     <div id="exhibits-gallery"></div>
   </div>
 
-  <!-- footers -->
+  <!-- footer -->
   <div class="left-links">
     <div class="info"><a href="photo.html">photo</a></div>
     <div class="info"><a href="exhibits.html" class="active">exhibits</a></div>
     <div class="info"><a href="modeling.html">modeling</a></div>
-    <br>
+    <div class="memory"><a href="memory.html">memory</a></div>
     <div class="cities">new york city</div>
     <div class="cities">paris</div>
   </div>
+
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html">contact</a>
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
 
+  <!-- lightbox -->
   <div class="lightbox" id="lightbox">
-    <img id="lightbox-img" src="" alt="Enlarged exhibit">
+    <img id="lightbox-img" src="" alt="">
   </div>
 
   <script>
-    const gallery = document.getElementById('exhibits-gallery');
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightbox-img');
-
     fetch('exhibits.json')
       .then(r => r.json())
       .then(images => {
-        images.forEach(fn => {
+        const container = document.getElementById('exhibits-gallery');
+        images.forEach(src => {
           const img = document.createElement('img');
-          img.src = `exhibits/${fn}`;
-          img.alt = fn;
-          img.onclick = () => {
-            lbImg.src = img.src;
-            lightbox.style.display = 'flex';
-          };
-          gallery.appendChild(img);
+          img.src = src;
+          img.addEventListener('click', () => {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+          });
+          container.appendChild(img);
         });
       });
-
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-      lbImg.src = '';
-    });
+    document.getElementById('lightbox')
+      .addEventListener('click', () => {
+        document.getElementById('lightbox').style.display = 'none';
+      });
   </script>
+
 </body>
 </html>
