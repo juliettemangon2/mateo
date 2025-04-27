@@ -20,20 +20,28 @@ html, body {
 .main {
   padding-bottom: 120px;
   overflow-y: auto;
+
+  /* Hide scrollbars */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE 10+ */
+}
+.main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 /* ─── FIXED FOOTER LINKS ────────────────────────────────────────────────────── */
 .left-links,
 .bottom-right {
   position: fixed;
-  bottom: 20px;
   z-index: 1000;
   text-transform: uppercase;
 }
 
-/* left-hand menu */
+/* left‐hand menu */
 .left-links {
   left: 20px;
+  bottom: 20px;
 }
 .left-links .info {
   font-weight: 600;
@@ -55,9 +63,10 @@ html, body {
   margin-bottom: 0.2rem;
 }
 
-/* right-hand menu */
+/* right‐hand menu — moved up a bit */
 .bottom-right {
   right: 20px;
+  bottom: 40px;    /* ↑ raised 20px higher than the left menu */
   text-align: right;
 }
 .bottom-right .mateo {
@@ -80,20 +89,15 @@ html, body {
   font-size: 0.7rem;
 }
 
-/* active link */
+/* ─── ACTIVE LINK ───────────────────────────────────────────────────────────── */
 .active {
   color: #fff !important;
 }
 
-/* images sit flush — no borders */
+/* ─── IMAGE RESET ───────────────────────────────────────────────────────────── */
 img {
   display: block;
   max-width: 100%;
   height: auto;
   border: none;
-}
-
-/* Active link on sub‐pages */
-.active {
-  color: #fff !important;
 }
