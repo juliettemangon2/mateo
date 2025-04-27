@@ -84,18 +84,25 @@ html, body {
   text-align: right;
 }
 .bottom-right .mateo {
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-}
-.bottom-right a {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #000;
-  text-decoration: none;
-  margin-bottom: 0.3rem;
-}
+   font-size: 0.7rem;
+   font-weight: 700;
+   line-height: 0.8;
+   margin-bottom: 0.5rem;
+ }
+ .bottom-right .mateo a,
+ .bottom-right a {
+   color: #000;
+   text-decoration: none;
+   display: block;
+   font-size: 2rem;
+   font-weight: 600;
+   line-height: 0.8;
+   margin-bottom: 0.5rem;
+ }
+ .bottom-right .mateo a {
+   font-size: 0.7rem;
+ }
+ 
 
 /* ─── OPTIONAL: HIDE SCROLLBAR UNDER FOOTER ──────────────────────────────────── */
 .main::-webkit-scrollbar {
