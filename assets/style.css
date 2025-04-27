@@ -80,7 +80,7 @@ html, body {
 /* ─── RIGHT FOOTER ──────────────────────────────────────────────────────────── */
 .bottom-right {
   position: fixed;
-  bottom: 10px;
+  bottom: 80px;
   right: 10px;
   text-transform: uppercase;
   text-align: right;
