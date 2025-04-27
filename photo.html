@@ -3,38 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title> Mateo Antonio Martinez</title>
+  <title>Photos – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* Centered, full-height scroll area */
-    .main {
-      position: absolute;
-      top: 20px;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      max-width: 90%;
-      overflow-y: auto;
-    }
-
-    /* Cover thumbnails */
-    #gallery img {
-      display: block;
-      margin: 0 auto 20px;
-      width: 100%;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Scrollable center column -->
   <div class="main">
     <div id="gallery"></div>
   </div>
 
-  <!-- Fixed footers -->
+  <!-- footers -->
   <div class="left-links">
     <div class="info"><a href="photo.html" class="active">photo</a></div>
     <div class="info"><a href="exhibits.html">exhibits</a></div>
@@ -63,9 +41,7 @@
           link.appendChild(img);
           gallery.appendChild(link);
         });
-      })
-      .catch(console.error);
+      });
   </script>
-
 </body>
 </html>
