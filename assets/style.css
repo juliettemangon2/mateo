@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   width: 100%;
   height: 100%;
@@ -15,19 +14,27 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ─── MAIN SCROLLABLE AREA ──────────────────────────────────────────────────── */
-/* give room at bottom so fixed-footers never cover content */
+/* ─── SCROLLBARS HIDDEN ─────────────────────────────────────────────────────── */
 .main {
-  padding-bottom: 120px;
-  overflow-y: auto;
-
-  /* Hide scrollbars */
   scrollbar-width: none;        /* Firefox */
   -ms-overflow-style: none;     /* IE 10+ */
 }
 .main::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+
+/* ─── CENTER COLUMN ────────────────────────────────────────────────────────── */
+.main {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  max-width: 90%;
+  overflow-y: auto;
+  padding-bottom: 120px;        /* space for footer */
 }
 
 /* ─── FIXED FOOTER LINKS ────────────────────────────────────────────────────── */
@@ -47,7 +54,6 @@ html, body {
   font-weight: 600;
   font-size: 2rem;
   line-height: 0.7;
-  color: #000;
   margin-bottom: 0.5rem;
 }
 .left-links .info a {
@@ -63,10 +69,10 @@ html, body {
   margin-bottom: 0.2rem;
 }
 
-/* right‐hand menu — moved up a bit */
+/* right‐hand menu, lifted up a bit */
 .bottom-right {
   right: 20px;
-  bottom: 40px;    /* ↑ raised 20px higher than the left menu */
+  bottom: 40px;
   text-align: right;
 }
 .bottom-right .mateo {
@@ -89,15 +95,51 @@ html, body {
   font-size: 0.7rem;
 }
 
-/* ─── ACTIVE LINK ───────────────────────────────────────────────────────────── */
+/* active link styling */
 .active {
   color: #fff !important;
 }
 
-/* ─── IMAGE RESET ───────────────────────────────────────────────────────────── */
+/* images flush, no borders */
 img {
   display: block;
   max-width: 100%;
   height: auto;
   border: none;
+}
+
+/* ─── MOBILE ADJUSTMENTS ───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .main {
+    top: 60px;              /* leave a little room for any header */
+    bottom: 60px;           /* leave room for footers */
+    left: 0;
+    transform: none;
+    width: 100%;
+    padding: 10px 10px 120px; /* same bottom padding */
+  }
+  .left-links {
+    left: 10px;
+    bottom: 10px;
+  }
+  .left-links .info {
+    font-size: 1.4rem;
+  }
+  .left-links .cities {
+    font-size: 0.85rem;
+  }
+  .bottom-right {
+    right: 10px;
+    bottom: 10px;
+  }
+  .bottom-right .mateo {
+    font-size: 0.6rem;
+  }
+  .bottom-right a {
+    font-size: 1.2rem;
+  }
+  /* tighten image margins on mobile */
+  img {
+    margin-bottom: 15px;
+  }
 }
