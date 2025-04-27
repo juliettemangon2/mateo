@@ -1,4 +1,4 @@
-/* reset & base */
+/* ─── RESET & BASE ───────────────────────────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -11,33 +11,34 @@ html, body {
   color: #000;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   position: relative;
-  overflow: hidden; /* hide native scrollbar under footer */
+  overflow: hidden; /* hide any native scrollbar under footer */
 }
 
-/* main scrolling area */
+/* ─── MAIN SCROLLABLE AREA (used on photo/exhibits/shoot pages) ───────────── */
 .main {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 600px;       /* cap width on desktop */
+  max-width: 600px;
   height: 100%;
-  padding-bottom: 120px;   /* leave room for footers */
+  padding-bottom: 120px; /* room for footers */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* images */
+/* ─── IMAGE RULES ───────────────────────────────────────────────────────────── */
 .main img {
   display: block;
   width: 100%;
-  max-width: 480px;        /* narrower on mobile */
+  max-width: 480px;
   margin: 0 auto 16px;
   border: none;
+  cursor: pointer;
 }
 
-/* lightbox (hidden by default) */
+/* ─── LIGHTBOX (hidden by default) ──────────────────────────────────────────── */
 .lightbox {
   display: none;
   position: fixed;
@@ -53,19 +54,20 @@ html, body {
   max-height: 90%;
 }
 
-/* footer – left side */
+/* ─── LEFT FOOTER ───────────────────────────────────────────────────────────── */
 .left-links {
   position: fixed;
   bottom: 10px;
   left: 10px;
   text-transform: uppercase;
 }
-.left-links .info {
+.left-links .info,
+.left-links .memory {
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
 }
-.left-links .info a {
+.left-links a {
   color: #000;
   text-decoration: none;
 }
@@ -74,17 +76,11 @@ html, body {
   font-weight: 600;
   margin-top: 0.8rem;
 }
-.left-links .memory {
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-}
 
-/* footer – right side */
+/* ─── RIGHT FOOTER ──────────────────────────────────────────────────────────── */
 .bottom-right {
   position: fixed;
   bottom: 10px;
-  top: 120px;
   right: 10px;
   text-transform: uppercase;
   text-align: right;
@@ -103,7 +99,7 @@ html, body {
   margin-bottom: 0.3rem;
 }
 
-/* hide default scrollbars under footer */
+/* ─── OPTIONAL: HIDE NATIVE SCROLLBARS UNDER FOOTER ─────────────────────────── */
 .main::-webkit-scrollbar {
   width: 8px;
 }
@@ -111,13 +107,43 @@ html, body {
   background: rgba(0,0,0,0.2);
   border-radius: 4px;
 }
-/* optional: to truly “invisible” */
-/*
-.main::-webkit-scrollbar { display: none; }
-*/
 
+/* ─── DESKTOP IMAGE MAX‐WIDTH ───────────────────────────────────────────────── */
 @media (min-width: 600px) {
   .main img {
     max-width: 580px;
+  }
+}
+
+/* ─── MOBILE ADJUSTMENTS ───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .main {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    padding: 10px;
+    bottom: 120px; /* so content never scrolls under your footer */
+  }
+  .left-links {
+    left: 10px;
+    bottom: 10px;
+  }
+  .left-links .info,
+  .left-links .memory {
+    font-size: 1rem;
+  }
+  .left-links .cities {
+    font-size: 0.85rem;
+  }
+  .bottom-right {
+    right: 10px;
+    bottom: 10px;
+  }
+  .bottom-right .mateo {
+    font-size: 0.6rem;
+  }
+  .bottom-right a {
+    font-size: 1rem;
   }
 }
