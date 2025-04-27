@@ -3,30 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title id="pagetitle">Shoot – Mateo</title>
+  <title id="pagetitle">Shoot – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    img { 
-      border: none; 
-      display: block; 
-      margin: 0 auto 20px; 
-      width: 100%; 
-      max-width: 600px; 
+    /* ─── IMAGE STYLING ───────────────────────────────────────────── */
+    img {
+      border: none;
+      display: block;
+      margin: 0 auto 20px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* ─── CENTER COLUMN ───────────────────────────────────────────── */
+    .main {
+      position: absolute;
+      top: 20px;
+      bottom: 20px;            /* runs right up to just above the footers */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      max-width: 90%;
+      overflow-y: auto;
+    }
+
+    /* ─── “Back to all shoots” IN cities STYLE ───────────────────── */
+    .left-links {
+      position: fixed;
+      top: 20px;               /* tuck it under any header you might have */
+      left: 20px;
+      z-index: 1000;
+    }
+    .left-links .cities {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 0.6;
+      margin-bottom: 0.2rem;
+    }
+    .left-links .cities a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* ─── BOTTOM-RIGHT FOOTER ─────────────────────────────────────── */
+    .bottom-right {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      text-align: right;
     }
   </style>
 </head>
 <body>
 
-  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto;">
+  <!-- Vertical scroll of this shoot’s photos -->
+  <div class="main">
     <div id="photos"></div>
   </div>
 
-  <!-- “Back to all shoots” link -->
+  <!-- Back link, now styled exactly like .cities text -->
   <div class="left-links">
-    <a href="photo.html"> All shoots</a>
+    <div class="cities">
+      <a href="photo.html">All shoots</a>
+    </div>
   </div>
 
-  <!-- Standard footer -->
+  <!-- Your normal bottom-right footer -->
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html">contact</a>
@@ -34,7 +78,7 @@
   </div>
 
   <script>
-    // 1) pick up the ?shoot= parameter
+    // Grab the shoot= query param
     const params = new URLSearchParams(location.search);
     const shoot = params.get('shoot');
     if (!shoot) {
@@ -42,15 +86,15 @@
       throw '';
     }
 
-    // 2) optional: load title from shoots.json
+    // Optionally update the page title from shoots.json
     fetch('shoots.json')
       .then(r => r.json())
       .then(all => {
-        const meta = all.find(s => s.name === shoot);
-        if (meta) document.getElementById('pagetitle').textContent = meta.title;
+        const info = all.find(s => s.name === shoot);
+        if (info) document.getElementById('pagetitle').textContent = info.title;
       });
 
-    // 3) load per-shoot JSON file
+    // Load and render this shoot’s photos
     fetch(`${shoot}.json`)
       .then(r => r.json())
       .then(images => {
