@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Photos – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto; position:relative; top:5%; bottom:5%;">
+  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto;">
     <div id="gallery"></div>
   </div>
 
-  <!-- Footer (same on every page) -->
+  <!-- Footer -->
   <div class="left-links">
     <div class="info"><a href="photo.html" class="active">photo</a></div>
     <div class="info"><a href="exhibits.html">exhibits</a></div>
@@ -27,20 +28,21 @@
   </div>
 
   <script>
-    // Load your shoots.json and render each cover as a link to its page
     fetch('shoots.json')
       .then(r => r.json())
       .then(shoots => {
         const gallery = document.getElementById('gallery');
         shoots.forEach(s => {
-          const a = document.createElement('a');
-          a.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
+          const link = document.createElement('a');
+          link.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
           const img = document.createElement('img');
           img.src = s.cover;
-          a.appendChild(img);
-          gallery.appendChild(a);
+          link.appendChild(img);
+          gallery.appendChild(link);
         });
-      });
+      })
+      .catch(console.error);
   </script>
+
 </body>
 </html>
