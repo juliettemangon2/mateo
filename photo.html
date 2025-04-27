@@ -5,14 +5,36 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Photos – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Centered, full-height scroll area */
+    .main {
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      max-width: 90%;
+      overflow-y: auto;
+    }
+
+    /* Cover thumbnails */
+    #gallery img {
+      display: block;
+      margin: 0 auto 20px;
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto;">
+  <!-- Scrollable center column -->
+  <div class="main">
     <div id="gallery"></div>
   </div>
 
-  <!-- Footer -->
+  <!-- Fixed footers -->
   <div class="left-links">
     <div class="info"><a href="photo.html" class="active">photo</a></div>
     <div class="info"><a href="exhibits.html">exhibits</a></div>
@@ -37,6 +59,7 @@
           link.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
           const img = document.createElement('img');
           img.src = s.cover;
+          img.alt = s.title;
           link.appendChild(img);
           gallery.appendChild(link);
         });
