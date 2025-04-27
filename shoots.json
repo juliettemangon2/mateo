@@ -1,5 +1,11 @@
 [
   {
+    "name": "shoot2",
+    "title": "Shoot2",
+    "cover": "mateoSamples/shoot2/IMG_6460.jpeg",
+    "json": "shoot2.json"
+  },
+  {
     "name": "shoot1",
     "title": "Shoot1",
     "cover": "mateoSamples/shoot1/IMG_6446.jpeg",
