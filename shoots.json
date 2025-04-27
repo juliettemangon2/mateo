@@ -1,5 +1,11 @@
 [
   {
+    "name": "shoot5",
+    "title": "Shoot5",
+    "cover": "mateoSamples/shoot5/608BA09A-28BC-40E9-8DB7-81AB6DB4B3D9.jpeg",
+    "json": "shoot5.json"
+  },
+  {
     "name": "shoot2",
     "title": "Shoot2",
     "cover": "mateoSamples/shoot2/IMG_6460.jpeg",
