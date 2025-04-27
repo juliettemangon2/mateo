@@ -40,7 +40,6 @@
         }
       });
 
-    // now fetch the JSON for this shoot
     fetch(`${shoot}.json`)
       .then(r => r.json())
       .then(images => {
