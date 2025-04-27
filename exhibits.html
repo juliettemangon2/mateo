@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mateo Antonio Martinez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exhibits – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
+  <!-- Main scrolling area -->
   <div class="main">
     <div id="exhibits-gallery"></div>
   </div>
 
-  <!-- footer -->
+  <!-- Footer (left side) -->
   <div class="left-links">
     <div class="info"><a href="photo.html">photo</a></div>
     <div class="info"><a href="exhibits.html" class="active">gallery</a></div>
@@ -22,36 +23,39 @@
     <div class="cities">paris</div>
   </div>
 
+  <!-- Footer (right side) -->
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html">contact</a>
     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
   </div>
 
-  <!-- lightbox -->
+  <!-- Lightbox for enlarged view -->
   <div class="lightbox" id="lightbox">
-    <img id="lightbox-img" src="" alt="">
+    <img id="lightbox-img" src="" alt="Exhibit photo">
   </div>
 
   <script>
+    // Load exhibits.json and create image elements
     fetch('exhibits.json')
-      .then(r => r.json())
+      .then(response => response.json())
       .then(images => {
         const container = document.getElementById('exhibits-gallery');
         images.forEach(src => {
           const img = document.createElement('img');
-          img.src = src;
+          img.src = `exhibits/${src}`; // ← corrected path
           img.addEventListener('click', () => {
-            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-img').src = `exhibits/${src}`;
             document.getElementById('lightbox').style.display = 'flex';
           });
           container.appendChild(img);
         });
       });
-    document.getElementById('lightbox')
-      .addEventListener('click', () => {
-        document.getElementById('lightbox').style.display = 'none';
-      });
+
+    // Click anywhere on lightbox to close
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
+    });
   </script>
 
 </body>
