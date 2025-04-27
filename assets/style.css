@@ -1,4 +1,4 @@
-/* ─── RESET & BASE ───────────────────────────────────────────────────────────── */
+/* reset & base */
 * {
   margin: 0;
   padding: 0;
@@ -10,133 +10,114 @@ html, body {
   background: #fff;
   color: #000;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  overflow-x: hidden;
   position: relative;
+  overflow: hidden; /* hide native scrollbar under footer */
 }
 
-/* ─── MAIN SCROLLABLE AREA ──────────────────────────────────────────────────── */
+/* main scrolling area */
 .main {
   position: absolute;
-  top: 20px;
-  bottom: 20px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
-  max-width: 90%;
+  width: 90%;
+  max-width: 600px;       /* cap width on desktop */
+  height: 100%;
+  padding-bottom: 120px;   /* leave room for footers */
   overflow-y: auto;
-  padding-bottom: 120px; /* room for footers */
-
-  /* hide scrollbars */
-  scrollbar-width: none;      /* Firefox */
-  -ms-overflow-style: none;   /* IE10+ */
-}
-.main::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* ─── IMAGE SPACING ────────────────────────────────────────────────────────── */
-/* adds 20px under every image */
+/* images */
 .main img {
   display: block;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-width: 480px;        /* narrower on mobile */
+  margin: 0 auto 16px;
   border: none;
-  margin-bottom: 20px;
-  cursor: pointer;
 }
 
-/* ─── FIXED FOOTER LINKS ────────────────────────────────────────────────────── */
-.left-links,
-.bottom-right {
+/* lightbox (hidden by default) */
+.lightbox {
+  display: none;
   position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
-  text-transform: uppercase;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
 }
 
-/* left menu */
+/* footer – left side */
 .left-links {
-  left: 20px;
-  bottom: 20px;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  text-transform: uppercase;
 }
 .left-links .info {
   font-weight: 600;
-  font-size: 2rem;
-  line-height: 0.7;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
 }
 .left-links .info a {
   color: #000;
   text-decoration: none;
-  display: block;
-  margin-bottom: 0.75rem;
 }
 .left-links .cities {
   font-size: 1rem;
   font-weight: 600;
-  line-height: 0.6;
-  margin-bottom: 0.2rem;
+  margin-top: 0.8rem;
+}
+.left-links .memory {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
 }
 
-/* right menu (lifted up a little) */
+/* footer – right side */
 .bottom-right {
-  right: 20px;
-  bottom: 70px;
+  position: fixed;
+  bottom: 10px;
+  top: 120px;
+  right: 10px;
+  text-transform: uppercase;
   text-align: right;
 }
 .bottom-right .mateo {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  line-height: 0.8;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
-.bottom-right .mateo a,
 .bottom-right a {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #000;
   text-decoration: none;
-  display: block;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 0.8;
-  margin-bottom: 0.5rem;
-}
-.bottom-right .mateo a {
-  font-size: 0.7rem;
+  margin-bottom: 0.3rem;
 }
 
-/* active link highlight */
-.active {
-  color: #fff !important;
+/* hide default scrollbars under footer */
+.main::-webkit-scrollbar {
+  width: 8px;
 }
+.main::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+/* optional: to truly “invisible” */
+/*
+.main::-webkit-scrollbar { display: none; }
+*/
 
-/* ─── MOBILE ADJUSTMENTS ───────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .main {
-    top: 60px;
-    bottom: 140px;      /* push bottom of scroll area up so nothing hides under footers */
-    left: 0;
-    transform: none;
-    width: 100%;
-    padding: 10px;
-  }
-  .left-links {
-    left: 10px;
-    bottom: 10px;
-  }
-  .left-links .info {
-    font-size: 1.4rem;
-  }
-  .left-links .cities {
-    font-size: 0.85rem;
-  }
-  .bottom-right {
-    right: 10px;
-    bottom: 10px;
-  }
-  .bottom-right .mateo {
-    font-size: 0.6rem;
-  }
-  .bottom-right a {
-    font-size: 1.2rem;
+@media (min-width: 600px) {
+  .main img {
+    max-width: 580px;
   }
 }
