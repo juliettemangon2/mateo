@@ -10,21 +10,11 @@ html, body {
   background: #fff;
   color: #000;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  position: relative;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* ─── SCROLLBARS HIDDEN ─────────────────────────────────────────────────────── */
-.main {
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE 10+ */
-}
-.main::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-/* ─── CENTER COLUMN ────────────────────────────────────────────────────────── */
+/* ─── MAIN SCROLLABLE AREA ──────────────────────────────────────────────────── */
 .main {
   position: absolute;
   top: 20px;
@@ -34,7 +24,26 @@ html, body {
   width: 600px;
   max-width: 90%;
   overflow-y: auto;
-  padding-bottom: 120px;        /* space for footer */
+  padding-bottom: 120px; /* room for footers */
+
+  /* hide scrollbars */
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE10+ */
+}
+.main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* ─── IMAGE SPACING ────────────────────────────────────────────────────────── */
+/* adds 20px under every image */
+.main img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 /* ─── FIXED FOOTER LINKS ────────────────────────────────────────────────────── */
@@ -45,7 +54,7 @@ html, body {
   text-transform: uppercase;
 }
 
-/* left‐hand menu */
+/* left menu */
 .left-links {
   left: 20px;
   bottom: 20px;
@@ -69,7 +78,7 @@ html, body {
   margin-bottom: 0.2rem;
 }
 
-/* right‐hand menu, lifted up a bit */
+/* right menu (lifted up a little) */
 .bottom-right {
   right: 20px;
   bottom: 40px;
@@ -86,8 +95,8 @@ html, body {
   color: #000;
   text-decoration: none;
   display: block;
-  font-weight: 600;
   font-size: 2rem;
+  font-weight: 600;
   line-height: 0.8;
   margin-bottom: 0.5rem;
 }
@@ -95,28 +104,20 @@ html, body {
   font-size: 0.7rem;
 }
 
-/* active link styling */
+/* active link highlight */
 .active {
   color: #fff !important;
-}
-
-/* images flush, no borders */
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border: none;
 }
 
 /* ─── MOBILE ADJUSTMENTS ───────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .main {
-    top: 60px;              /* leave a little room for any header */
-    bottom: 60px;           /* leave room for footers */
+    top: 60px;
+    bottom: 140px;      /* push bottom of scroll area up so nothing hides under footers */
     left: 0;
     transform: none;
     width: 100%;
-    padding: 10px 10px 120px; /* same bottom padding */
+    padding: 10px;
   }
   .left-links {
     left: 10px;
@@ -137,9 +138,5 @@ img {
   }
   .bottom-right a {
     font-size: 1.2rem;
-  }
-  /* tighten image margins on mobile */
-  img {
-    margin-bottom: 15px;
   }
 }
