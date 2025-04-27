@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Exhibits – Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto; position:relative; top:5%; bottom:5%;">
+  <div class="main" style="margin:5% auto; width:90%; overflow-y:auto;">
     <div id="exhibits-gallery"></div>
   </div>
 
-  <!-- Footer (same on every page) -->
+  <!-- Footer -->
   <div class="left-links">
     <div class="info"><a href="photo.html">photo</a></div>
     <div class="info"><a href="exhibits.html" class="active">exhibits</a></div>
@@ -27,17 +28,18 @@
   </div>
 
   <script>
-    // Load exhibits.json and render each image
     fetch('exhibits.json')
       .then(r => r.json())
       .then(images => {
-        const g = document.getElementById('exhibits-gallery');
-        images.forEach(src => {
+        const gallery = document.getElementById('exhibits-gallery');
+        images.forEach(filename => {
           const img = document.createElement('img');
-          img.src = src;
-          g.appendChild(img);
+          img.src = `exhibits/${filename}`;
+          gallery.appendChild(img);
         });
-      });
+      })
+      .catch(console.error);
   </script>
+
 </body>
 </html>
