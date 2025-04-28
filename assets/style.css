@@ -38,7 +38,7 @@ html, body {
 /* ─── IMAGE SPACING ────────────────────────────────────────────────────────── */
 .main img {
   display: block;
-  max-width: 50%;    /* was 100% */
+  max-width: 70%;    /* was 100% */
   width: 100%;       /* lets it shrink below 95% if its intrinsic size is smaller */
   height: auto;
   margin: 0 auto 20px;  /* centers the image horizontally */
@@ -104,7 +104,11 @@ html, body {
    font-size: 0.7rem;
  }
  
-
+@media (min-width: 601px) {
+  .main img {
+    max-width: 100%;
+  }
+}
 /* active link highlight */
 .active {
   color: #fff !important;
