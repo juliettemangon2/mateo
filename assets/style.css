@@ -1,51 +1,19 @@
-/* ─── RESET & BASE ───────────────────────────────────────────────────────────── */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  color: #000;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* ─── MAIN SCROLLABLE AREA ──────────────────────────────────────────────────── */
 .main {
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  max-width: 90%;
-  overflow-y: auto;
-  padding-bottom: 120px; /* room for footers */
-
-  /* hide scrollbars */
-  scrollbar-width: none;      /* Firefox */
-  -ms-overflow-style: none;   /* IE10+ */
-}
-.main::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  margin: 5% auto 0;
+  width: 90%;
+  max-width: 600px;
+  padding-bottom: 120px; /* space for footer so nothing is hidden */
 }
 
-/* ─── IMAGE SPACING ────────────────────────────────────────────────────────── */
 .main img {
   display: block;
-  max-width: 100%;
-  height: auto;
-  border: none;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 1rem;
   cursor: pointer;
+  border: none;
 }
 
-/* ─── FIXED FOOTER LINKS ────────────────────────────────────────────────────── */
+/* Footer links pinned to sides */
 .left-links,
 .bottom-right {
   position: fixed;
@@ -57,40 +25,39 @@ html, body {
 .left-links {
    left: 20px;
    bottom: 20px;
- }
- .left-links .info {
+}
+.left-links .info {
    font-weight: 600;
    font-size: 2rem;
    line-height: 0.7;
    margin-bottom: 0.5rem;
- }
- .left-links .info a {
+}
+.left-links .info a {
    color: #000;
    text-decoration: none;
    display: block;
    margin-bottom: 0.75rem;
- }
- .left-links .cities {
+}
+.left-links .cities {
    font-size: 1rem;
    font-weight: 600;
    line-height: 0.6;
    margin-bottom: 0.2rem;
- }
- 
- /* right menu (lifted up a little) */
- .bottom-right {
+}
+
+/* right menu */
+.bottom-right {
    right: 20px;
-   bottom: 90px;
+   bottom: 20px;
    text-align: right;
- }
- .bottom-right .mateo {
+}
+.bottom-right .mateo {
    font-size: 0.7rem;
    font-weight: 700;
    line-height: 0.8;
    margin-bottom: 0.5rem;
- }
- .bottom-right .mateo a,
- .bottom-right a {
+}
+.bottom-right a {
    color: #000;
    text-decoration: none;
    display: block;
@@ -98,26 +65,23 @@ html, body {
    font-weight: 600;
    line-height: 0.8;
    margin-bottom: 0.5rem;
- }
- .bottom-right .mateo a {
+}
+.bottom-right .mateo a {
    font-size: 0.7rem;
- }
- 
+}
 
 /* active link highlight */
 .active {
   color: #fff !important;
 }
 
-/* ─── MOBILE ADJUSTMENTS ───────────────────────────────────────────────────── */
+/* mobile adjustments */
 @media (max-width: 768px) {
   .main {
-    top: 60px;
-    bottom: 140px;      /* push bottom of scroll area up so nothing hides under footers */
-    left: 0;
-    transform: none;
-    width: 100%;
-    padding: 10px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 95%;
+    padding-bottom: 150px; /* slightly bigger to leave footer visible */
   }
   .left-links {
     left: 10px;
