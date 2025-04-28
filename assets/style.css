@@ -38,11 +38,11 @@ html, body {
 /* ─── IMAGE SPACING ────────────────────────────────────────────────────────── */
 .main img {
   display: block;
-  max-width: 90%;
-  width: 100%;
+  max-width: 95%;    /* was 100% */
+  width: 100%;       /* lets it shrink below 95% if its intrinsic size is smaller */
   height: auto;
+  margin: 0 auto 20px;  /* centers the image horizontally */
   border: none;
-  margin-bottom: 20px;
   cursor: pointer;
 }
 
@@ -108,9 +108,4 @@ html, body {
 /* active link highlight */
 .active {
   color: #fff !important;
-}
-@media (min-width: 601px) {
-  .main img {
-    max-width: 100%;
-  }
 }
