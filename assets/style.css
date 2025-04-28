@@ -38,7 +38,7 @@ html, body {
 /* ─── IMAGE SPACING ────────────────────────────────────────────────────────── */
 .main img {
   display: block;
-  max-width: 85%;    /* was 100% */
+  max-width: 50%;    /* was 100% */
   width: 100%;       /* lets it shrink below 95% if its intrinsic size is smaller */
   height: auto;
   margin: 0 auto 20px;  /* centers the image horizontally */
