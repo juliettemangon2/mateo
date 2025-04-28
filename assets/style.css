@@ -111,39 +111,42 @@ html, body {
 
 /* ✅ Mobile adjustments ONLY */
 @media (max-width: 768px) {
+  /* Shrink main margins */
   .main {
-    position: static;
-    margin-top: 10%;
-    margin-bottom: 20%;
+    margin-top: 5%;
+    margin-bottom: 10%;
     width: 90%;
     max-width: 600px;
     padding-bottom: 150px;
     overflow-y: visible;
     transform: none;
+    position: static;
   }
 
-
+  /* Left footer */
   .left-links {
-    left: 4%;
-    bottom: 4%;
+    left: 3%;
+    bottom: 3%;
   }
   .left-links .info {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;  /* smaller */
+    margin-bottom: 0.4rem;
   }
   .left-links .cities {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
+  /* Right footer */
   .bottom-right {
-    right: 4%;
-    bottom: 4%;
+    right: 3%;
+    bottom: 3%;
   }
   .bottom-right a {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;  /* smaller */
+    margin-bottom: 0.4rem;
   }
-  .bottom-right .mateo {
-    font-size: 0.6rem;
+  .bottom-right .mateo a {
+    font-size: 0.5rem;
   }
 }
+
