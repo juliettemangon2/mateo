@@ -110,7 +110,7 @@ html, body {
 }
 @media only screen and (max-device-width: 600px) {
   .main img {
-    max-width: 90%;
+    max-width: 50%;
   }
 }
 
