@@ -108,10 +108,9 @@ html, body {
 .active {
   color: #fff !important;
 }
-@media (max-width: 600px) {
+@media only screen and (max-device-width: 600px) {
   .main img {
     max-width: 90%;
   }
 }
-
 
