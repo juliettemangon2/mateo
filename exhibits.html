@@ -3,79 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Exhibits – Mateo Antonio Martinez</title>
-   <link rel="stylesheet" href="assets/style.css">
-   <style>
-     /* lightbox overlay */
-     .lightbox {
-       display: none;
-       position: fixed;
-       top:0; left:0; right:0; bottom:0;
-       background: rgba(0,0,0,0.8);
-       justify-content: center;
-       align-items: center;
-       z-index: 2000;
-     }
-     .lightbox img {
-       max-width: 90%;
-       max-height: 90%;
-     }
-     /* gallery images centered */
-     #exhibits-gallery img {
-       cursor: pointer;
-     }
-   </style>
- </head>
- <body>
- 
-   <div class="main">
-     <div id="exhibits-gallery"></div>
-   </div>
- 
-   <!-- footers -->
-   <div class="left-links">
-     <div class="info"><a href="photo.html">photo</a></div>
-     <div class="info"><a href="exhibits.html" class="active">gallery</a></div>
-     <div class="info"><a href="modeling.html">model</a></div>
-     <div class="info"><a href="memory.html">memory</a></div>
-     <br>
-     <div class="cities">new york city</div>
-     <div class="cities">paris</div>
-   </div>
-   <div class="bottom-right">
-     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
-     <a href="contact.html">contact</a>
-     <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
-   </div>
- 
-   <div class="lightbox" id="lightbox">
-     <img id="lightbox-img" src="" alt="Enlarged exhibit">
-   </div>
- 
-   <script>
-     const gallery = document.getElementById('exhibits-gallery');
-     const lightbox = document.getElementById('lightbox');
-     const lbImg = document.getElementById('lightbox-img');
- 
-     fetch('exhibits.json')
-       .then(r => r.json())
-       .then(images => {
-         images.forEach(fn => {
-           const img = document.createElement('img');
-           img.src = `exhibits/${fn}`;
-           img.alt = fn;
-           img.onclick = () => {
-             lbImg.src = img.src;
-             lightbox.style.display = 'flex';
-           };
-           gallery.appendChild(img);
-         });
-       });
- 
-     lightbox.addEventListener('click', () => {
-       lightbox.style.display = 'none';
-       lbImg.src = '';
-     });
-   </script>
- </body>
- </html>
+  <title>Mateo Antonio Martinez</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    #exhibits-gallery img {
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div id="exhibits-gallery"></div>
+  </div>
+
+  <div class="left-links">
+    <div class="info"><a href="photo.html">photo</a></div>
+    <div class="info"><a href="exhibits.html" class="active">gallery</a></div>
+    <div class="info"><a href="modeling.html">model</a></div>
+    <div class="info"><a href="memory.html">memory</a></div>
+    <br>
+    <div class="cities">new york city</div>
+    <div class="cities">paris</div>
+  </div>
+
+  <div class="bottom-right">
+    <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
+    <a href="contact.html">contact</a>
+    <a href="https://instagram.com/brownspud" target="_blank" rel="noopener noreferrer">instagram</a>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="Enlarged exhibit">
+  </div>
+
+  <script>
+    const gallery = document.getElementById('exhibits-gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+
+    fetch('exhibits.json')
+      .then(r => r.json())
+      .then(images => {
+        images.forEach(fn => {
+          const img = document.createElement('img');
+          img.src = `exhibits/${fn}`;
+          img.alt = fn;
+          img.onclick = () => {
+            lbImg.src = img.src;
+            lightbox.style.display = 'flex';
+          };
+          gallery.appendChild(img);
+        });
+      });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lbImg.src = '';
+    });
+  </script>
+
+</body>
+</html>
