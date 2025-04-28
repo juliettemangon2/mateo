@@ -112,11 +112,16 @@ html, body {
 /* ✅ Mobile adjustments ONLY */
 @media (max-width: 768px) {
   .main {
+    position: static;
     margin-top: 10%;
     margin-bottom: 20%;
     width: 90%;
-    padding-bottom: 150px; /* more breathing room for bottom footer */
+    max-width: 600px;
+    padding-bottom: 150px;
+    overflow-y: visible;
+    transform: none;
   }
+
 
   .left-links {
     left: 4%;
