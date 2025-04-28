@@ -1,8 +1,21 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #000;
+  position: relative;
+}
+
+/* Main Content (for images, center aligned) */
 .main {
   margin: 5% auto 0;
   width: 90%;
   max-width: 600px;
-  padding-bottom: 120px; /* space for footer so nothing is hidden */
+  padding-bottom: 120px; /* leave space so footer never blocks */
 }
 
 .main img {
@@ -13,95 +26,97 @@
   border: none;
 }
 
-/* Footer links pinned to sides */
-.left-links,
-.bottom-right {
-  position: fixed;
-  z-index: 1000;
-  text-transform: uppercase;
-}
-
-/* left menu */
+/* Footer: Left links */
 .left-links {
-   left: 20px;
-   bottom: 20px;
+  position: fixed;
+  left: 5%;
+  bottom: 8%;
+  text-transform: uppercase;
+  z-index: 1000;
 }
 .left-links .info {
-   font-weight: 600;
-   font-size: 2rem;
-   line-height: 0.7;
-   margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
 }
 .left-links .info a {
-   color: #000;
-   text-decoration: none;
-   display: block;
-   margin-bottom: 0.75rem;
+  color: #000;
+  text-decoration: none;
+  display: block;
 }
 .left-links .cities {
-   font-size: 1rem;
-   font-weight: 600;
-   line-height: 0.6;
-   margin-bottom: 0.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 0.6;
+  margin-bottom: 0.2rem;
 }
 
-/* right menu */
+/* Footer: Bottom-right links */
 .bottom-right {
-   right: 20px;
-   bottom: 20px;
-   text-align: right;
+  position: fixed;
+  right: 5%;
+  bottom: 8%;
+  text-align: right;
+  text-transform: uppercase;
+  z-index: 1000;
 }
 .bottom-right .mateo {
-   font-size: 0.7rem;
-   font-weight: 700;
-   line-height: 0.8;
-   margin-bottom: 0.5rem;
-}
-.bottom-right a {
-   color: #000;
-   text-decoration: none;
-   display: block;
-   font-size: 2rem;
-   font-weight: 600;
-   line-height: 0.8;
-   margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 0.8;
+  margin-bottom: 0.5rem;
 }
 .bottom-right .mateo a {
-   font-size: 0.7rem;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+.bottom-right a {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 0.8;
+  color: #000;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-/* active link highlight */
+/* Active link highlight */
 .active {
   color: #fff !important;
 }
 
-/* mobile adjustments */
+/* ✅ Mobile adjustments ONLY */
 @media (max-width: 768px) {
   .main {
-    margin-top: 80px;
-    margin-bottom: 80px;
-    width: 95%;
-    padding-bottom: 150px; /* slightly bigger to leave footer visible */
+    margin-top: 10%;
+    margin-bottom: 20%;
+    width: 90%;
+    padding-bottom: 150px; /* more breathing room for bottom footer */
   }
+
   .left-links {
-    left: 10px;
-    bottom: 10px;
+    left: 4%;
+    bottom: 4%;
   }
-  .left-links .info,
-  .left-links .memory {
+  .left-links .info {
     font-size: 1.4rem;
+    margin-bottom: 0.5rem;
   }
   .left-links .cities {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
+
   .bottom-right {
-    right: 10px;
-    bottom: 10px;
+    right: 4%;
+    bottom: 4%;
+  }
+  .bottom-right a {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
   }
   .bottom-right .mateo {
     font-size: 0.6rem;
-  }
-  .bottom-right a {
-    font-size: 1.2rem;
   }
 }
