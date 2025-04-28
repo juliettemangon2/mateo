@@ -6,10 +6,9 @@
   <title>Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Make sure these match the same look */
     .main {
       position: absolute;
-      top: 70%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -20,6 +19,13 @@
     .main a {
       text-decoration: none;
       color: inherit;
+    }
+
+    /* Mobile: adjust slightly lower */
+    @media (max-width: 768px) {
+      .main {
+        top: 55%;
+      }
     }
   </style>
 </head>
@@ -45,7 +51,7 @@
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html" class="active">contact</a>
-    <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
+    <a href="https://instagram.com/brownspud" target="_blank" rel="noopener noreferrer">instagram</a>
   </div>
 
 </body>
