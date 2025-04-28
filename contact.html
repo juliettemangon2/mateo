@@ -5,25 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Make sure these match the same look */
+    .main {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 2rem;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #000;
+    }
+    .main a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Centered phone number -->
-  <div class="main" style="
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-     padding-top: 25vh;
-  ">
-    <a href="tel:+13196403040"
-   style="color: #000; text-decoration: none;">
-  +1 (319) 640-3040
-</a>
-
+  <div class="main">
+    <a href="tel:+13196403040">+1 (319) 640-3040</a>
   </div>
 
-  <!-- Bottom-left cities footer (same as all pages) -->
+  <!-- Bottom-left footer -->
   <div class="left-links">
     <div class="info"><a href="photo.html">photo</a></div>
     <div class="info"><a href="exhibits.html">gallery</a></div>
@@ -34,7 +41,7 @@
     <div class="cities">paris</div>
   </div>
 
-  <!-- Bottom-right standard footer -->
+  <!-- Bottom-right footer -->
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html" class="active">contact</a>
