@@ -5,7 +5,7 @@
   <title>Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    /* Specific styling for the main modeling text */
+    /* Centered phone number styling */
     .contact-text {
       position: absolute;
       top: 50%;
@@ -17,22 +17,31 @@
       color: #000;
     }
 
-    /* ✅ Mobile fix: lower the text slightly for smaller screens */
+    /* Make the phone link black and remove underline */
+    .contact-text a {
+      color: #000;
+      text-decoration: none;
+    }
+    .contact-text a:hover,
+    .contact-text a:active {
+      text-decoration: none;
+    }
+
+    /* Mobile adjustment */
     @media (max-width: 768px) {
       .contact-text {
         top: 55%;
         font-size: 1.5rem;
-        padding: 0 10px; /* slight side padding */
+        padding: 0 10px;
       }
     }
   </style>
 </head>
 <body>
-   <div class="contact-text">
-     <a href="tel:+13196403040">+1 (319) 640-3040</a>
+
+  <div class="contact-text">
+    <a href="tel:+13196403040">+1 (319) 640-3040</a>
   </div>
-
-
 
   <!-- Bottom-left footer -->
   <div class="left-links">
