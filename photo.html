@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mateo Antonio Martinez</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -12,7 +12,7 @@
     <div id="gallery"></div>
   </div>
 
-  <!-- footer -->
+  <!-- Footer -->
   <div class="left-links">
     <div class="info"><a href="photo.html" class="active">photo</a></div>
     <div class="info"><a href="exhibits.html">gallery</a></div>
@@ -26,11 +26,10 @@
   <div class="bottom-right">
     <div class="mateo"><a href="index.html">mateo antonio martinez</a></div>
     <a href="contact.html">contact</a>
-    <a href="https://instagram.com/brownspud" target="_blank">instagram</a>
+    <a href="https://instagram.com/brownspud" target="_blank" rel="noopener noreferrer">instagram</a>
   </div>
 
   <script>
-    // Render each shoot’s cover
     fetch('shoots.json')
       .then(r => r.json())
       .then(shoots => {
@@ -40,6 +39,7 @@
           a.href = `shoot.html?shoot=${encodeURIComponent(s.name)}`;
           const img = document.createElement('img');
           img.src = s.cover;
+          img.alt = s.name;
           a.appendChild(img);
           gallery.appendChild(a);
         });
