@@ -38,7 +38,8 @@ html, body {
 /* ─── IMAGE SPACING ────────────────────────────────────────────────────────── */
 .main img {
   display: block;
-  max-width: 100%;
+  max-width: 90%;
+  width: 100%;
   height: auto;
   border: none;
   margin-bottom: 20px;
@@ -108,9 +109,8 @@ html, body {
 .active {
   color: #fff !important;
 }
-@media only screen and (max-device-width: 600px) {
+@media (min-width: 601px) {
   .main img {
-    max-width: 50%;
+    max-width: 100%;
   }
 }
-
