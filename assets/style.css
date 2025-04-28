@@ -104,7 +104,7 @@ html, body {
    font-size: 0.7rem;
  }
  
-@media (min-width: 601px) {
+@media (min-width: 770px) {
   .main img {
     max-width: 100%;
   }
