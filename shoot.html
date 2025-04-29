@@ -90,7 +90,7 @@
       .then(r => r.json())
       .then(all => {
         const info = all.find(s => s.name === shoot);
-        if (info) document.title = info.title + ' – Mateo Antonio Martinez';
+        if (info) document.title = 'Mateo Antonio Martinez';
       });
 
     // 3) fetch the individual shoot’s JSON and render images
