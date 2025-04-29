@@ -12,6 +12,12 @@
     "json": "shoot2.json"
   },
   {
+    "name": "shoot4",
+    "title": "Shoot4",
+    "cover": "mateoSamples/shoot4/IMG_6214.png",
+    "json": "shoot4.json"
+  },
+  {
     "name": "shoot3",
     "title": "Shoot3",
     "cover": "mateoSamples/shoot3/IMG_4126_VSCO.jpeg",
